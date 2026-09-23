@@ -1,6 +1,6 @@
 # ai-skills — 작업 가이드
 
-이 레포는 모든 레포/환경에 설치되는 전역 에이전트 설정의 원본이다. 배경, 설치 방법, `install.sh` 동작은 README.md 참고.
+이 레포는 모든 레포/환경에 설치되는 전역 에이전트 설정의 원본이다. 설치 방법은 README.md, 배경은 docs/background.md, 훅 작성법은 docs/hooks.md 참고.
 
 ## 이 레포에서 작업할 때
 
