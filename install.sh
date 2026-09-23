@@ -11,11 +11,11 @@ warn() { printf '[ai-skills] WARN: %s\n' "$*" >&2; }
 
 mkdir -p "$CLAUDE_DIR/skills"
 
-# 1. CLAUDE.md -> import AGENTS.md
+# 1. CLAUDE.md -> import global/AGENTS.md
 #    Claude Code reads CLAUDE.md, not AGENTS.md, so add an @import line.
 #    An existing CLAUDE.md is kept; the import line is appended once.
 claude_md="$CLAUDE_DIR/CLAUDE.md"
-import_line="@$REPO_DIR/AGENTS.md"
+import_line="@$REPO_DIR/global/AGENTS.md"
 if [ -f "$claude_md" ] && grep -qxF "$import_line" "$claude_md"; then
   log "CLAUDE.md already imports AGENTS.md"
 else
