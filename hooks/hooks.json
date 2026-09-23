@@ -1,3 +1,12 @@
 {
-  "hooks": {}
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          { "type": "command", "command": "{{AI_SKILLS_DIR}}/hooks/scripts/session-check.sh" }
+        ]
+      }
+    ]
+  }
 }

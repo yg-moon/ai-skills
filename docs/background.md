@@ -10,3 +10,13 @@
 
 - Setup script 가 Claude Code 가 `~/.claude` 를 읽기 **전에** 실행되는지. 설정 후 새 세션에서 `cat ~/.claude/CLAUDE.md` 와 스킬 호출로 확인할 것.
 - 클라우드 하네스가 세션 시작 시 `~/.claude/settings.json` 을 다시 쓰는지 (그렇다면 병합한 훅이 사라진다).
+
+### 확인 방법 (임시)
+
+`global/AGENTS.md` 의 "Install Check", `skills/ai-skills-check`, `hooks/scripts/session-check.sh` 는 설치 확인용 임시 항목이다. Setup script 설정 후 새 세션에서:
+
+1. 응답 끝에 `🧪 ai-skills` 가 붙는지 → 전역 지시사항 적용
+2. `/ai-skills-check` 가 호출되는지 → 스킬 적용
+3. `/tmp/ai-skills-hook-ran` 에 `cloud` 줄이 있는지 → 훅 적용
+
+확인이 끝나면 세 항목을 지우고 `hooks.json` 을 `{"hooks": {}}` 로 되돌린다.

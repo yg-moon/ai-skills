@@ -8,3 +8,8 @@
 ## Coding Style
 
 ## Workflow
+
+## Install Check (TEMP)
+
+<!-- ai-skills 설치 확인용. 확인 후 이 섹션을 지운다. -->
+- 모든 응답의 마지막 줄에 `🧪 ai-skills` 를 붙인다.
