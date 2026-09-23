@@ -4,7 +4,8 @@
 
 ```
 ai-skills/
-├── AGENTS.md               # 전역 지시사항 원본
+├── AGENTS.md               # 전역 지시사항 원본 (install.sh 로 전역 적용)
+├── CLAUDE.md               # 이 레포 자체를 수정할 때의 작업 가이드
 ├── skills/<name>/SKILL.md  # 전역 스킬
 ├── hooks/
 │   ├── hooks.json          # settings.json 에 병합될 hooks
@@ -13,6 +14,18 @@ ai-skills/
 ```
 
 > 공개 레포다. 토큰, 내부 경로, 개인 정보는 넣지 않는다.
+
+## 배경
+
+- Claude Code 클라우드 세션은 새 컨테이너에 작업 레포만 clone 해서 시작한다. 로컬 `~/.claude`(전역 CLAUDE.md, 개인 스킬, settings.json 훅)는 넘어오지 않는다.
+- 클라우드에서 자동으로 들어오는 것은 (1) 작업 레포 안의 `CLAUDE.md` / `.claude/`, (2) claude.ai 계정에 켜진 스킬과 커넥터뿐이다. 계정 단위로는 전역 지시사항과 훅을 옮길 방법이 없다.
+- 그래서 원본을 이 레포 한 곳에 두고, 로컬과 클라우드 모두 `install.sh` 로 `~/.claude` 를 채운다. 클라우드는 Environment 의 Setup script 에서 실행하므로 그 Environment 를 쓰는 모든 레포 세션에 적용된다.
+- Claude Code 는 `AGENTS.md` 를 직접 읽지 않고 `CLAUDE.md` 를 읽는다. 원본은 다른 도구와도 호환되도록 `AGENTS.md` 로 두고, `~/.claude/CLAUDE.md` 에서 `@` import 한다.
+
+### 확인되지 않은 것
+
+- Setup script 가 Claude Code 가 `~/.claude` 를 읽기 **전에** 실행되는지. 설정 후 새 세션에서 `cat ~/.claude/CLAUDE.md` 와 스킬 호출로 확인할 것.
+- 클라우드 하네스가 세션 시작 시 `~/.claude/settings.json` 을 다시 쓰는지 (그렇다면 병합한 훅이 사라진다).
 
 ## 설치
 
