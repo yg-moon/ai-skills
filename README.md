@@ -5,8 +5,7 @@
 ```
 ai-skills/
 ├── global/AGENTS.md        # 전역 지시사항 원본 (install.sh 로 전역 적용)
-├── AGENTS.md               # 이 레포 자체를 수정할 때의 작업 가이드 (Codex 등)
-├── CLAUDE.md               # @AGENTS.md — Claude Code 용 진입점
+├── AGENTS.md               # 이 레포 자체를 수정할 때의 작업 가이드
 ├── skills/<name>/SKILL.md  # 전역 스킬
 ├── hooks/
 │   ├── hooks.json          # settings.json 에 병합될 hooks
@@ -19,10 +18,10 @@ ai-skills/
 ## 배경
 
 - Claude Code 클라우드 세션은 새 컨테이너에 작업 레포만 clone 해서 시작한다. 로컬 `~/.claude`(전역 CLAUDE.md, 개인 스킬, settings.json 훅)는 넘어오지 않는다.
-- 클라우드에서 자동으로 들어오는 것은 (1) 작업 레포 안의 `CLAUDE.md` / `.claude/`, (2) claude.ai 계정에 켜진 스킬과 커넥터뿐이다. 계정 단위로는 전역 지시사항과 훅을 옮길 방법이 없다.
+- 클라우드에서 자동으로 들어오는 것은 (1) 작업 레포 안의 `AGENTS.md` / `CLAUDE.md` / `.claude/`, (2) claude.ai 계정에 켜진 스킬과 커넥터뿐이다. 계정 단위로는 전역 지시사항과 훅을 옮길 방법이 없다.
 - 그래서 원본을 이 레포 한 곳에 두고, 로컬과 클라우드 모두 `install.sh` 로 `~/.claude` 를 채운다. 클라우드는 Environment 의 Setup script 에서 실행하므로 그 Environment 를 쓰는 모든 레포 세션에 적용된다.
-- Claude Code 는 `AGENTS.md` 를 직접 읽지 않고 `CLAUDE.md` 를 읽는다. 원본은 다른 도구와도 호환되도록 `AGENTS.md` 형식으로 두고, `~/.claude/CLAUDE.md` 에서 `@` import 한다.
-- 루트 `AGENTS.md` 는 이 레포 작업용 가이드라서, 전역 원본은 `global/AGENTS.md` 로 분리했다. 루트 `CLAUDE.md` 는 `@AGENTS.md` 한 줄로 Claude Code 도 같은 가이드를 읽게 한다.
+- 지시사항은 Claude Code, Codex 등이 모두 읽는 `AGENTS.md` 로 쓴다. 레포의 `CLAUDE.md` 는 두지 않는다.
+- 루트 `AGENTS.md` 는 이 레포 작업용 가이드라서, 전역 원본은 `global/AGENTS.md` 로 분리했다. 전역 적용은 `~/.claude/CLAUDE.md` 에서 `@` import 하는 방식으로 한다.
 
 ### 확인되지 않은 것
 

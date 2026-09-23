@@ -1,7 +1,5 @@
 # ai-skills — 작업 가이드
 
-<!-- Codex 등은 이 파일을, Claude Code 는 CLAUDE.md(@AGENTS.md)를 통해 이 파일을 읽는다. -->
-
 이 레포는 모든 레포/환경에 설치되는 전역 에이전트 설정의 원본이다. 배경, 설치 방법, `install.sh` 동작은 README.md 참고.
 
 ## 이 레포에서 작업할 때
@@ -16,5 +14,5 @@
   T=$(mktemp -d) && HOME=$T ./install.sh && HOME=$T ./install.sh && cat $T/.claude/settings.json
   ```
 
-- 레포 가이드는 이 파일에만 쓴다. `CLAUDE.md` 는 `@AGENTS.md` 한 줄로 유지한다.
+- 레포 가이드는 이 파일에만 쓴다. `CLAUDE.md` 는 만들지 않는다.
 - 구조나 `install.sh` 동작을 바꾸면 README.md 도 같이 갱신한다.
