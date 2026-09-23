@@ -14,5 +14,5 @@
   T=$(mktemp -d) && HOME=$T ./install.sh && HOME=$T ./install.sh && cat $T/.claude/settings.json
   ```
 
-- 레포 가이드는 이 파일에만 쓴다. `CLAUDE.md` 는 만들지 않는다.
+- 레포 가이드는 이 파일에만 쓴다. `CLAUDE.md` 는 AGENTS.md 를 못 읽는 구버전 Claude Code 호환용으로 `@AGENTS.md` 한 줄만 유지한다.
 - 구조나 `install.sh` 동작을 바꾸면 README.md 도 같이 갱신한다.

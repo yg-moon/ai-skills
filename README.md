@@ -4,7 +4,7 @@
 
 ```
 global/AGENTS.md        # 전역 지시사항
-AGENTS.md               # 이 레포 작업 가이드
+AGENTS.md               # 이 레포 작업 가이드 (CLAUDE.md 는 구버전 호환용 import)
 skills/<name>/SKILL.md  # 전역 스킬
 hooks/hooks.json        # 전역 훅 (docs/hooks.md)
 install.sh              # ~/.claude 에 설치
